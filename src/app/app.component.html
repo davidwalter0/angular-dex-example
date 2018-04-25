@@ -1,0 +1,48 @@
+<mat-toolbar mat-elevation-z15 class="raised-row mat-elevation-z15">
+  <mat-toolbar-row>
+    <span>
+      <a mat-raised-button
+         routerLink="/home"
+         >
+        Home
+      </a>
+    </span>
+    <span class="toolbar-spacer"></span>
+    <a mat-raised-button
+       routerLink="/public">
+      Public
+    </a>
+    <a mat-raised-button *ngIf="givenName"
+       routerLink="/authorized">
+      Authorized
+    </a>
+    <button *ngIf="givenName" mat-raised-button (click)="logout()">Logout</button>
+    <button *ngIf="!givenName" mat-raised-button (click)="login()">Login</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<style>
+</style>
+<router-outlet></router-outlet>
+
+<!-- <mat-toolbar mat-elevation-z15 class="raised-row mat-elevation-z15"> -->
+<!--   <mat-toolbar-row> -->
+<!--     <span> -->
+<!--       <a mat-raised-button -->
+<!--          routerLink="/home" -->
+<!--          > -->
+<!--          <\!-- style="margin: 10px;" -\-> -->
+<!--         Home -->
+<!--       </a> -->
+<!--     </span> -->
+<!--     <span class="toolbar-spacer"></span> -->
+<!--     <a mat-raised-button *ngIf="givenName" style="margin: 10px;" -->
+<!--        routerLink="/authorized"> -->
+<!--       Authorized Users Only -->
+<!--     </a> -->
+<!--     <button style="margin: 10px;" *ngIf="givenName" mat-raised-button (click)="logout()">Logout</button> -->
+<!--     <button style="margin: 10px;" *ngIf="!givenName" mat-raised-button (click)="login()">Login</button> -->
+<!--   </mat-toolbar-row> -->
+<!-- </mat-toolbar> -->
+<!-- <style> -->
+<!-- </style> -->
+<!-- <router-outlet></router-outlet> -->

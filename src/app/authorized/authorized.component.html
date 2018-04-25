@@ -1,0 +1,17 @@
+<div *ngIf="!givenName">
+  <meta http-equiv="refresh" content="3; URL='/home" />
+</div>
+<mat-card class="mat-elevation-z15">
+  <mat-card-content>
+    <h3>Authorized
+      <br>
+      <br>
+      <div *ngIf="givenName">
+        Welcome, {{givenName}} authorized user.
+      </div>
+    </h3>
+    <br>
+    <h3 *ngIf="givenName">Authenticated User!</h3>
+    <h3 *ngIf="!givenName">UnAuthenticated User!</h3>
+  </mat-card-content>
+</mat-card>
