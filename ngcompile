@@ -29,7 +29,7 @@ if [[ ${ssl:-} ]]; then
 fi
 
 if [[ ${edit:-} ]]; then
-    sed -i -e "s,example.com,${edit},g" ${root}/src/environments/environment.ts
+    sed -i -e "s,example.com,${edit},g" ${root}/src/environments/environment.ts ${root}/src/app/app.component.ts
 fi
 
 echo "ng (angular2) compile using root ${root} ${ssl}"
