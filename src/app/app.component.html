@@ -1,48 +1,62 @@
-<mat-toolbar mat-elevation-z15 class="raised-row mat-elevation-z15">
+<hr>
+<mat-toolbar mat-elevation-z15 class="mat-elevation-z15">
   <mat-toolbar-row>
     <span>
-      <a mat-raised-button
-         routerLink="/home"
-         >
+      <button mat-raised-button routerLink="/home">
         Home
-      </a>
+      </button>
     </span>
     <span class="toolbar-spacer"></span>
-    <a mat-raised-button
-       routerLink="/public">
+    <button mat-raised-button routerLink="/public">
       Public
-    </a>
-    <a mat-raised-button *ngIf="givenName"
-       routerLink="/authorized">
-      Authorized
-    </a>
-    <button *ngIf="givenName" mat-raised-button (click)="logout()">Logout</button>
-    <button *ngIf="!givenName" mat-raised-button (click)="login()">Login</button>
+    </button>
+    <span style="padding-left: 2px;">
+      <button mat-raised-button routerLink="/pager">
+        Pager
+      </button>
+    </span>
+    <span style="padding-left: 2px;">
+      <button mat-raised-button routerLink="/debug">
+        Debug
+      </button>
+    </span>
+    <span *ngIf="givenName" style="padding-left: 2px;">
+      <button *ngIf="givenName" mat-raised-button routerLink="/authorized">
+        Authorized
+      </button>
+    </span>
+    <span style="padding-left: 2px;">
+      <button *ngIf="givenName" mat-raised-button (click)="logout()">
+        Logout
+      </button>
+      <button *ngIf="!givenName" mat-raised-button (click)="login()">
+        Login
+      </button>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <style>
 </style>
+<hr>
 <router-outlet></router-outlet>
+<hr>
+<mat-card class="mat-elevation-z15">
+  <mat-card-content>
+    <br>
+    origin: <pre><code>{{ origin }}</code></pre>
+    <br>
+    location: <pre><code>{{ location }}</code></pre>
+    <br>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <br>
+    <table>
+      <tr *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{ item }}</td>
+      </tr>
+    </table>
+    location: <pre><code>{{ location }}</code></pre>
+  </mat-card-content>
+</mat-card>
 
-<!-- <mat-toolbar mat-elevation-z15 class="raised-row mat-elevation-z15"> -->
-<!--   <mat-toolbar-row> -->
-<!--     <span> -->
-<!--       <a mat-raised-button -->
-<!--          routerLink="/home" -->
-<!--          > -->
-<!--          <\!-- style="margin: 10px;" -\-> -->
-<!--         Home -->
-<!--       </a> -->
-<!--     </span> -->
-<!--     <span class="toolbar-spacer"></span> -->
-<!--     <a mat-raised-button *ngIf="givenName" style="margin: 10px;" -->
-<!--        routerLink="/authorized"> -->
-<!--       Authorized Users Only -->
-<!--     </a> -->
-<!--     <button style="margin: 10px;" *ngIf="givenName" mat-raised-button (click)="logout()">Logout</button> -->
-<!--     <button style="margin: 10px;" *ngIf="!givenName" mat-raised-button (click)="login()">Login</button> -->
-<!--   </mat-toolbar-row> -->
-<!-- </mat-toolbar> -->
-<!-- <style> -->
-<!-- </style> -->
-<!-- <router-outlet></router-outlet> -->
+
+

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+function cleanup
+{
+    if [[ ! ${CLEANED:-} ]]; then
+        export CLEANED=1
+    fi
+    echo "========================================================================"
+    echo " Cleanup shell option settings "
+    echo "========================================================================"
+    set +o errexit
+    set +o nounset
+    set +o pipefail
+    set +TE
+}
+
+trap cleanup EXIT ERR 
+
+set -TE
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [[ ! ${PROJECT_EXT:-} ]]; then
+
+   cat <<EOF
+Not configured. 
+
+Please verify you have exported the PROJECT_EXT environment variable and
+created each of the following files
+
+etc/environment.config.template.\${PROJECT_EXT}
+etc/environment.admin.config.template.\${PROJECT_EXT}
+
+EOF
+   exit 1
+fi
+
+. etc/environment.setup.template.${PROJECT_EXT}
+. etc/environment.usage
+. etc/environment.body
+. etc/environment.config.template.all
+. etc/environment.admins.config.template.all
+
+if [[ "${DOMAIN}" == "example.com" ]] ; then
+    cat <<EOF
+
+########################################################################
+Please configure non default environment: export DOMAIN= should be changed
+from DOMAIN=${DOMAIN}
+########################################################################
+
+$(printf "$(usage)")
+
+########################################################################
+Please configure non default environment: export DOMAIN= should be changed
+from DOMAIN=${DOMAIN}
+########################################################################
+
+EOF
+    exit 2
+fi

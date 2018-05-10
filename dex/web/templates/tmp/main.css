@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #46B !important;
+  box-shadow: 1px 1 3 #46B outset !important;
+  border: 2px solid #46B !important;
+  margin: 2px;
+  padding: 2px;
+  margin-top: 5px;
+  background-color : #46B;
+  color: mat-color($dark-foreground-palette, text);
+}
+
+
+.dex-container {
+  color: #333;
+  margin: 45px auto;
+  max-width: 500px;
+  min-width: 320px;
+  text-align: center;
+}
+
+.dex-btn {
+  border-radius: 4px;
+  border: 0;
+  box-shadow: 1px 1 3 #46B outset !important;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+.dex-btn:focus {
+  outline: none;
+  box-shadow: 1px 1 3 #46B outset !important;
+}
+
+.dex-btn:active {
+  box-shadow: 1px 0 3 #46B inset !important;
+  outline: none;
+}
+
+.dex-btn-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  border-radius: 4px 0 0 4px;
+  float: left;
+  height: 36px;
+  margin-right: 5px;
+  width: 36px;
+}
+
+.dex-btn-icon--google {
+  background-color: #455A84;
+  background-image: url(../static/img/google-icon.svg);;
+}
+
+.dex-btn-icon--local {
+  background-color: #455A84;
+  background-image: url(../static/img/email-icon.svg);
+}
+
+.dex-btn-icon--coreos {
+  background-image: url(../static/img/coreos-icon.svg);
+}
+
+.dex-btn-icon--github {
+  background-color: #455A84;
+  background-image: url(../static/img/github-icon.svg);
+}
+
+.dex-btn-icon--gitlab {
+  background-image: url(../static/img/gitlab-icon.svg);
+  background-size: contain;
+}
+
+.dex-btn-icon--bitbucket {
+  background-color: #455A84;
+  background-image: url(../static/img/bitbucket-icon.svg);
+}
+
+.dex-btn-icon--ldap, .dex-btn-icon--tectonic-ldap {
+  background-color: #455A84;
+  background-image: url(../static/img/ldap-icon.svg);
+}
+
+.dex-btn-icon--saml {
+  background-color: #455A84;
+  background-image: url(../static/img/saml-icon.svg);
+}
+
+.dex-btn-icon--linkedin {
+  background-image: url(../static/img/linkedin-icon.svg);
+  background-size: contain;
+}
+
+.dex-btn-icon--microsoft {
+  background-image: url(../static/img/microsoft-icon.svg);
+}
+
+.dex-btn-text {
+  font-weight: 600;
+  line-height: 36px;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.dex-subtle-text {
+  color: #999;
+  font-size: 12px;
+}
+
+.dex-separator {
+  color: #999;
+}
+
+.dex-list {
+  color: #999;
+  display: inline-block;
+  font-size: 12px;
+  list-style: circle;
+  text-align: left;
+}
+
+.dex-error-box {
+  background-color: #455A84;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  max-width: 320px;
+  padding: 4px 0;
+}
+
+.dex-error-box {
+  margin: 20px auto;
+}
+

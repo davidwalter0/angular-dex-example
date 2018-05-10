@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
+import { Router } from '@angular/router';
+import { config } from './config';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +12,24 @@ export class AppComponent {
   private username: string;
   private password: string;
   private error: string;
+  private title = 'Angular Dex Authentication App';
+  private collection = [];
 
-  title = 'Angular Dex Authentication App';
-
-  constructor(private oauthService: OAuthService) { // , private changeDetector: ChangeDetectorRef) {
+  constructor(private oauthService: OAuthService, private router: Router) {
+    this.oauthService.issuer = config.issuer;
+    this.oauthService.clientId = config.clientid;
     this.oauthService.redirectUri = window.location.origin + '/home';
-    console.log('redirectUri', this.oauthService.redirectUri, 'window', window.location.origin + '/home');
-    this.oauthService.clientId = 'angular-example';
     this.oauthService.scope = 'openid profile email';
     this.oauthService.oidc = true;
-    this.oauthService.issuer = 'https://example.com:5556';
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.showDebugInformation = true;
     this.oauthService.sessionChecksEnabled = true;
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+
+    console.log('redirectUri', this.oauthService.redirectUri, 'window', window.location.origin + '/home');
+    for (let i = 1; i <= 100; i++) {
+      this.collection.push(`item ${i}`);
+    }
   }
 
   login() {
@@ -32,6 +38,7 @@ export class AppComponent {
 
   logout() {
     this.oauthService.logOut();
+    this.router.navigate(['/home']);
   }
 
   get givenName() {
