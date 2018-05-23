@@ -1,3 +1,5 @@
+// http://michaelbromley.github.io/ngx-pagination/#/advanced
+
 import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
 import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 import { StringFilterPipe } from './string-filter.pipe';
