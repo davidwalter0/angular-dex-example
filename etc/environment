@@ -21,7 +21,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if ! which go ;  then
+if ! which go &> /dev/null ;  then
     echo This generates the password hash using a simple go file, but go was not found.
     echo Please check your paths
     exit 1
