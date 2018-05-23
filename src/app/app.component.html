@@ -11,11 +11,6 @@
       Public
     </button>
     <span style="padding-left: 2px;">
-      <button mat-raised-button routerLink="/pager">
-        Pager
-      </button>
-    </span>
-    <span style="padding-left: 2px;">
       <button mat-raised-button routerLink="/debug">
         Debug
       </button>
@@ -40,23 +35,3 @@
 <hr>
 <router-outlet></router-outlet>
 <hr>
-<mat-card class="mat-elevation-z15">
-  <mat-card-content>
-    <br>
-    origin: <pre><code>{{ origin }}</code></pre>
-    <br>
-    location: <pre><code>{{ location }}</code></pre>
-    <br>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    <br>
-    <table>
-      <tr *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
-        <td>{{ item }}</td>
-      </tr>
-    </table>
-    location: <pre><code>{{ location }}</code></pre>
-  </mat-card-content>
-</mat-card>
-
-
-

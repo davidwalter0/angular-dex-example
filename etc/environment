@@ -21,6 +21,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+if ! which go ;  then
+    echo This generates the password hash using a simple go file, but go was not found.
+    echo Please check your paths
+    exit 1
+fi
+
 if [[ ! ${PROJECT_EXT:-} ]]; then
 
    cat <<EOF

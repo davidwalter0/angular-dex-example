@@ -18,16 +18,10 @@ import { AuthorizedComponent } from './authorized/authorized.component';
 import { DebugComponent } from './debug/debug.component';
 import { MaterialModule } from './material.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { PagerComponent } from './pager/pager.component';
-import { StringFilterPipe } from './pager/string-filter.pipe';
-
-// import { Highlighter } from './providers/highlighter.service';
-import { MealsService } from './providers/meals.service';
 
 const appRoutes: Routes = [
   { path: 'authorized', component: AuthorizedComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
-  { path: 'pager', component: PagerComponent },
   { path: 'public', component: PublicComponent },
   { path: 'debug', component: DebugComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -42,8 +36,6 @@ const appRoutes: Routes = [
     DebugComponent,
     PublicComponent,
     AuthorizedComponent,
-    PagerComponent,
-    StringFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +53,6 @@ const appRoutes: Routes = [
   providers: [
     AuthGuard,
     AdminAuthGuard,
-    // Highlighter,
-    MealsService,
   ],
   bootstrap: [AppComponent]
 })
